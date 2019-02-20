@@ -1,0 +1,31 @@
+.col-md-12 {
+  text-align: center;
+  font-size: 3em;
+  background-color: red;
+}
+
+.msg {
+  text-align: center;
+  font-size: 1.3em;
+  color: red;
+}
+
+.row {
+  margin-top: 10px;
+  border: 5px solid white;
+  background-color: silver;
+  padding: 10px;
+}
+
+.label {
+  text-align: center;
+  vertical-align: top;
+}
+
+#submitMessage {
+  transition: opacity 10s;
+}
+
+#cancel {
+  text-decoration: underline;
+}

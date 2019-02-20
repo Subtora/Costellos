@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="description" content="Costello Improved" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <title>Costellos Pasta and Pizza</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="costello.css" />
+  </head>
+  <body>
+    <form
+      name="myForm"
+      action="https://costello-pasta.glitch.me/order"
+      id="myForm"
+      method="POST"
+      onsubmit="return calculateOrder(this)"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12" id="debug">Costello's Online Orders</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4  label">Pasta Bowl</div>
+          <div class="col-md-4">(basic price: $7.50)</div>
+          <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4  label">Pasta</div>
+          <div class="col-md-4">
+            <div>
+              <input type="radio" name="pastatype" value="0" />Spaghetti (no
+              extra cost)
+            </div>
+            <div>
+              <input type="radio" name="pastatype" value="50" />Fettucine (add
+              50 cents)
+            </div>
+            <div>
+              <input type="radio" name="pastatype" value="75" />Fusilli (add 75
+              cents)
+            </div>
+          </div>
+          <div class="col-md-4 msg" id="radioLabel"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4  label">Sauce</div>
+          <div class="col-md-4">
+            <select name="sauce">
+              <option value="0">Pomodoro (no extra cost)</option>
+              <option value="50">Bolognese (add 50 cents)</option>
+              <option value="100">Alfredo (add $1.00)</option>
+            </select>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4  label">Extras</div>
+          <div class="col-md-4">
+            <div>
+              <input type="checkbox" name="extras" value="200" />Side salad (add
+              $2.00)
+            </div>
+            <div>
+              <input type="checkbox" name="extras" value="100" />Bread sticks
+              (add $1.00)
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4  label">Name</div>
+          <div class="col-md-4">
+            <input type="text" id="name" name="client_name" />
+          </div>
+          <div class="col-md-4 msg" id="nameLabel"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4  label">Phone</div>
+          <div class="col-md-4"><input type="text" id="phone" value="" /></div>
+          <div class="col-md-4 msg" id="phoneLabel"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4  label">
+            <input type="submit" value="Order" id="submit" />
+          </div>
+          <div class="col-md-4" id="totalcost"></div>
+          <div class="col-md-4 msg" id="submitMessage"></div>
+        </div>
+      </div>
+    </form>
+    <script
+      language="JavaScript"
+      type="text/javascript"
+      src="costello.js"
+    ></script>
+  </body>
+</html>
