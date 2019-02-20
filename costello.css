@@ -27,5 +27,6 @@
 }
 
 #cancel {
+  color: blue;
   text-decoration: underline;
 }
