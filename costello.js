@@ -19,7 +19,7 @@ function validateForm() {
     nameLabel.innerText = "Required field!";
     condition = false;
   } else {
-    nameLabel.innerText = "Required field!";
+    nameLabel.innerText = "";
   }
   if (myForm.phone.value == "" || !myForm.phone.value.match(phoneFormat)) {
     phoneLabel.innerText = "Enter in 888-888-8888 format!";
@@ -33,17 +33,21 @@ function validateForm() {
 function calculatePrice() {
   let cost =
     750 + parseInt(myForm.pastatype.value) + parseInt(myForm.sauce.value);
-  if (myForm.extras.value != "") cost += parseInt(myForm.extras.value);
-
-  return (cost / 100).toFixed(2);
+  myForm.return(cost / 100).toFixed(2);
+  if (myForm.extras[0].checked != "") {
+    console.log(myForm.extras[0].value);
+  }
+  if (myForm.extras[1].checked != "") {
+    console.log(myForm.extras[1].value);
+  }
 }
 
 function calculateOrder() {
   if (!validateForm()) {
     return false;
   } else {
-    submitMessage.innerText = "Your total is: $" + calculatePrice();
+    totalcost.innerText = "Your total is: $" + calculatePrice();
   }
-  console.log("Submitted Successfully!");
+  submitMessage.innerText = "Submitted Successfully!";
   return false;
 }
