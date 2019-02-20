@@ -1,37 +1,37 @@
-var myForm = document.getElementById("myForm");
-var row = document.getElementsByClassName("row");
-
-function changeLabel(row, text) {
-  row.childNodes[5].innerText = text;
-}
+let myForm = document.getElementById("myForm");
+let radioLabel = document.getElementById("radioLabel");
+let nameLabel = document.getElementById("nameLabel");
+let phoneLabel = document.getElementById("phoneLabel");
+let totalcost = document.getElementById("totalcost");
+let submitMessage = document.getElementById("submitMessage");
 
 function validateForm() {
   let condition = true;
   let phoneFormat = /^\d\d\d-\d\d\d-\d\d\d\d$/; //regex format
 
   if (myForm.pastatype.value == "") {
-    changeLabel(row[2], "Required field! (You must choose a pasta)");
+    radioLabel.innerText = "Required field! (You must choose a pasta)";
     condition = false;
   } else {
-    changeLabel(row[2], "");
+    radioLabel.innerText = "";
   }
   if (myForm.name.value == "") {
-    changeLabel(row[5], "Required field!");
+    nameLabel.innerText = "Required field!";
     condition = false;
   } else {
-    changeLabel(row[5], "");
+    nameLabel.innerText = "Required field!";
   }
   if (myForm.phone.value == "" || !myForm.phone.value.match(phoneFormat)) {
-    changeLabel(row[6], "Enter in 888-888-8888 format!");
+    phoneLabel.innerText = "Enter in 888-888-8888 format!";
     condition = false;
   } else {
-    changeLabel(row[6], "");
+    phoneLabel.innerText = "";
   }
   return condition;
 }
 
 function calculatePrice() {
-  var cost =
+  let cost =
     750 + parseInt(myForm.pastatype.value) + parseInt(myForm.sauce.value);
   if (myForm.extras.value != "") cost += parseInt(myForm.extras.value);
 
@@ -42,7 +42,7 @@ function calculateOrder() {
   if (!validateForm()) {
     return false;
   } else {
-    row[7].childNodes[3].innerText = "Your total is: $" + calculatePrice();
+    submitMessage.innerText = "Your total is: $" + calculatePrice();
   }
   console.log("Submitted Successfully!");
   return false;
