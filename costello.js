@@ -63,8 +63,10 @@ function updatePrice() {
 
 function calculateOrder() {
   wait = setTimeout(function(){
-  myForm.submit();
-  console.log("order sent!");
+    if (condition) {
+      myForm.submit();
+      console.log("order sent!");
+    }
   }, 5000);
 return false;
 }
