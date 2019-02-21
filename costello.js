@@ -3,11 +3,13 @@ let radioLabel = document.getElementById("radioLabel");
 let nameLabel = document.getElementById("nameLabel");
 let phoneLabel = document.getElementById("phoneLabel");
 let totalcost = document.getElementById("totalcost");
+let submitBtn = document.getElementById("submitBtn");
 let submitMessage = document.getElementById("submitMessage");
 let condition = true;
 var wait;
 
 function validateForm() {
+  console.log("validating form");
   condition = true;
   let phoneFormat = /^\d\d\d-\d\d\d-\d\d\d\d$/; //regex format
 
@@ -44,8 +46,7 @@ function calculatePrice() {
   return (cost / 100).toFixed(2);
 }
 
-condition = false;
-function calculateOrder() {
+function updatePrice() {
   if (!validateForm()) {
     return false;
   } else {
@@ -53,15 +54,25 @@ function calculateOrder() {
   }
   submitMessage.innerHTML =
     "<p>Order is being submitted....<span id='cancel'>Cancel</span></p>";
-  wait = setTimeout(function(){
     if (condition != true ) {
           condition = true;
           calculateOrder();
     }
-  }, 5000);
-  console.log(condition);
-    return false;
+  console.log("Prepairing to send Order...");
 }
+
+function calculateOrder() {
+  wait = setTimeout(function(){
+  myForm.submit();
+  console.log("order sent!");
+  }, 5000);
+return false;
+}
+
+submitBtn.addEventListener("click", function(){
+  updatePrice();
+});
+
 submitMessage.addEventListener("click", function(){
   console.log("order canceled!");
   clearTimeout(wait);
